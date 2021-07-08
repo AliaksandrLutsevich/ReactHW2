@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {data.map((item, index) => {
+        {data.map((item) => {
           return (
             <div className='card'>
               <h3>{item.name.first}</h3> 
