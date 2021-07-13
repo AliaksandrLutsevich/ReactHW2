@@ -8,7 +8,7 @@ class App extends React.Component {
       <div>
         {data.map((item) => {
           return (
-            <div className='card'>
+            <div key={item._id} className='card'>
               <h3>{item.name.first}</h3> 
               <h4>{item.name.last}</h4>
             </div>
