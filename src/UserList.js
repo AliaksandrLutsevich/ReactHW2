@@ -1,24 +1,51 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
-class Sign extends Component {
-  state = {
-    users: "",
+const Sign = () => {
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  const userPhoneSet = (event) => {
+    setPhone(event.target.value);
   };
 
-  componentDidMount() {
+  const userPasswordSet = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const toSignIn = () => {
     axios
       .post("http://localhost:3001/auth/sign-in", {
-        phone: "+19254223749",
-        password: "123",
+        phone: phone,
+        password: password,
       })
       .then((response) => {
-        this.setState({ users: response.data });
+        setEmail(response.data.email);
       });
-  }
+  };
 
-  render() {
-    return <h2>Welcome! {this.state.users.email}</h2>;
-  }
-}
+  return (
+    <form>
+      <input
+        type="phone"
+        name="phone"
+        placeholder="Enter your phone number"
+        required
+        onChange={userPhoneSet}
+      />
+      <input
+        type="text"
+        name="password"
+        placeholder="Enter your password"
+        onChange={userPasswordSet}
+        required
+      />
+      <button type="submit" onClick={toSignIn}>
+        Sign In
+      </button>
+      <h3>{email}</h3>
+    </form>
+  );
+};
 export default Sign;
