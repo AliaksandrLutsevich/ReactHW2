@@ -4,7 +4,7 @@ import axios from "axios";
 class Sign extends Component {
     
   state = {
-    users: [],
+    users: '',
   };
 
   componentDidMount() {
