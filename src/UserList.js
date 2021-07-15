@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 
 class Sign extends Component {
-    
   state = {
-    users: '',
+    users: "",
   };
 
   componentDidMount() {
@@ -19,9 +18,7 @@ class Sign extends Component {
   }
 
   render() {
-    return (
-       <h2>Welcome! {this.state.users.email}</h2>
-    );
+    return <h2>Welcome! {this.state.users.email}</h2>;
   }
 }
 export default Sign;
