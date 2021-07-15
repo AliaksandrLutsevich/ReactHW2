@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import UserList from './UserList'
+import Sign from './UserList'
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserList />
+    <Sign />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
