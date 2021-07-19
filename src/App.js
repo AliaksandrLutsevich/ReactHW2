@@ -1,20 +1,26 @@
 import React from "react";
 import "./App.css";
-import data from "./data.json";
+import names from "./names.json";
 
 class App extends React.Component {
+  state = {
+    people: ["Nietzsche", "Goethe", "Descartes"],
+  };
+
+  onClick = () => {
+    const oneMoreName = names[Math.floor(Math.random() * 13)];
+    const newPeople = [...this.state.people, oneMoreName];
+    this.setState({ people: newPeople });
+  };
+
   render() {
     return (
-      <div>
-        {data.map((item) => {
-          return (
-            <div key={item._id} className='card'>
-              <h3>{item.name.first}</h3> 
-              <h4>{item.name.last}</h4>
-            </div>
-          );
+      <>
+        <button onClick={this.onClick}>Add Name</button>
+        {this.state.people.map((name) => {
+          return <h3>{name}</h3>;
         })}
-      </div>
+      </>
     );
   }
 }
