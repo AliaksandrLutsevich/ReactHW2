@@ -8,7 +8,8 @@ class App extends React.Component {
   };
 
   onClick = () => {
-    const oneMoreName = names[Math.floor(Math.random() * 13)];
+    const randIndex = Math.floor(Math.random() * 13);
+    const oneMoreName = names[randIndex];
     const newPeople = [...this.state.people, oneMoreName];
     this.setState({ people: newPeople });
   };
