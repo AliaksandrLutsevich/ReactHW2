@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class Inp extends Component {
+  
+  state = {
+    value: '',
+  }
+
+ onChange = (event) => {
+  this.setState ({value: event.target.value})
 }
 
-export default App;
+onClear = (event) => {
+  this.setState ({value: event.target.value = ''})
+}
+
+  render() {
+
+  return (
+    <div className='login-form'>
+      <input
+        type="text"
+        name="text"
+        value = {this.state.value}
+        placeholder="Enter your text"
+        onChange={this.onChange}
+      />
+      <button onClick={this.onClear}>Clear</button>
+      <div>{this.state.value}</div>
+    </div>
+  );
+};
+}
+export default Inp;
