@@ -21,19 +21,19 @@ const TimePicker = () => {
     
   }, [hours, minutes]);
 
-  const timerPlusHour = (event) => {
+  const timerPlusHour = () => {
     setHours(hours + 1);
   };
 
-  const timerMinusHour = (event) => {
+  const timerMinusHour = () => {
     setHours(hours - 1);
   };
 
-  const timerPlusMinute = (event) => {
+  const timerPlusMinute = () => {
     setMinutes(minutes + 1);
   };
 
-  const timerMinusMinute = (event) => {
+  const timerMinusMinute = () => {
     setMinutes(minutes - 1);
   };
 
