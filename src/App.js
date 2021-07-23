@@ -6,18 +6,19 @@ const TimePicker = () => {
 
   useEffect(() => {
     if (hours > 23) {
-      setHours((hours = 0));
+      setHours((0));
     }
     if (hours < 0) {
-      setHours((hours = 23));
+      setHours((23));
     }
-    if (minutes == 59) {
-      setMinutes((minutes = 0));
-      setHours(hours + 1);
+    if (minutes === 60) {
+      setMinutes((0));
+      setHours(+1);
     }
     if (minutes < 0) {
-      setMinutes((minutes = 0));
+      setMinutes((59));
     }
+    
   }, [hours, minutes]);
 
   const timerPlusHour = (event) => {
@@ -38,14 +39,14 @@ const TimePicker = () => {
 
   return (
     <>
-      <div>{hours}</div>
+      <div>{hours} Hours</div>
       <button name="plusHour" onClick={timerPlusHour}>
         +
       </button>
       <button name="minusHour" onClick={timerMinusHour}>
         -
       </button>
-      <div>{minutes}</div>
+      <div>{minutes} Minutes</div>
       <button name="plusMinute" onClick={timerPlusMinute}>
         +
       </button>
