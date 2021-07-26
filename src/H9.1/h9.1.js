@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import names from "./names.json";
 
 class PeopleList extends React.Component {

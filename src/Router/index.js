@@ -1,10 +1,14 @@
 import React from "react";
+import PeopleList from '../H9.1/h9.1'
+import Inp from '../H9.2/h9.2'
+import TimePicker from '../H9.3/h9.3'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+
 
 export default function App() {
   return (
@@ -13,28 +17,26 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/peoplelist">H9.1</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/input">H9.2</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/timepicker">H9.3</Link>
             </li>
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/peoplelist">
+            <PeopleListLink />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/timepicker">
+            <TimeLink />
           </Route>
-          <Route path="/">
-            <Home />
+          <Route path="/input">
+            <InpLink />
           </Route>
         </Switch>
       </div>
@@ -42,14 +44,14 @@ export default function App() {
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
+function InpLink() {
+  return <Inp/>;
 }
 
-function About() {
-  return <h2>About</h2>;
+function PeopleListLink() {
+  return <PeopleList/>;
 }
 
-function Users() {
-  return <h2>Users</h2>;
+function TimeLink() {
+  return <TimePicker/>;
 }
