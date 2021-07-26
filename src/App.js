@@ -39,14 +39,14 @@ const TimePicker = () => {
 
   return (
     <>
-      <div>{hours} Hours</div>
+      <div>{`${hours < 10 ? '0' : ''}${hours} Hours`}</div>
       <button name="plusHour" onClick={timerPlusHour}>
         +
       </button>
       <button name="minusHour" onClick={timerMinusHour}>
         -
       </button>
-      <div>{minutes} Minutes</div>
+      <div>{`${minutes < 10 ? '0' : ''}${minutes} Minutes`}</div>
       <button name="plusMinute" onClick={timerPlusMinute}>
         +
       </button>
