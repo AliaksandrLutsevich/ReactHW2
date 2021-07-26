@@ -11,8 +11,8 @@ class Inp extends Component {
   this.setState ({value: event.target.value})
 }
 
-onClear = (event) => {
-  this.setState ({value: event.target.value = ''})
+onClear = () => {
+  this.setState ({value: ''})
 }
 
   render() {
