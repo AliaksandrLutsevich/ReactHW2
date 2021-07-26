@@ -15,12 +15,17 @@ class App extends React.Component {
   };
 
   render() {
+    console.log(this.state.people)
     return (
       <>
         <button onClick={this.onClick}>Add Name</button>
-        {this.state.people.map((name) => {
-          return <h3>{name}</h3>;
-        })}
+            {this.state.people.map((name) => {
+              return (
+                <div key={name.index}>
+                  <h3>{name}</h3>
+                </div>
+              )
+            })}
       </>
     );
   }
