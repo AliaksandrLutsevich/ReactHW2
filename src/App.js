@@ -6,17 +6,18 @@ const TimePicker = () => {
 
   useEffect(() => {
     if (hours > 23) {
-      setHours((0));
+      setHours(0);
     }
     if (hours < 0) {
-      setHours((23));
+      setHours(23);
     }
-    if (minutes === 60) {
-      setMinutes((0));
+    if (minutes > 59) {
+      setMinutes(0);
       setHours(+1);
     }
     if (minutes < 0) {
-      setMinutes((59));
+      setHours(-1);
+      setMinutes(59);
     }
     
   }, [hours, minutes]);
