@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 class App extends React.Component {
   state = {
-    people: [{name: "Nietzsche"}, {name: "Goethe"}, {name: "Descartes"}],
+    people: [{name: "Nietzsche", id: uuidv4()}, {name: "Goethe", id: uuidv4()}, {name: "Descartes", id: uuidv4()}],
   };
 
   onClick = () => {
