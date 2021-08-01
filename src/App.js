@@ -1,60 +1,61 @@
-import React, { useEffect, useState } from "react";
+import React, { } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-const TimePicker = () => {
-  let [hours, setHours] = useState(0);
-  let [minutes, setMinutes] = useState(0);
+const App = () => {
+const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (hours > 23) {
-      setHours(0);
-    }
-    if (hours < 0) {
-      setHours(23);
-    }
-    if (minutes > 59) {
-      setMinutes(0);
-      setHours(+1);
-    }
-    if (minutes < 0) {
-      setHours(-1);
-      setMinutes(59);
-    }
-    
-  }, [hours, minutes]);
+const number = useSelector((state) => {
+ return state.number
+});
 
-  const timerPlusHour = () => {
-    setHours(hours + 1);
-  };
+const isChecked = useSelector((state) => {
+  return state.checked
+ });
 
-  const timerMinusHour = () => {
-    setHours(hours - 1);
-  };
+ const isPassword = useSelector((state) => {
+  return state.password
+ });
 
-  const timerPlusMinute = () => {
-    setMinutes(minutes + 1);
-  };
+const actionPlus = {
+  type: "BUTTON_PLUS_CLICK"
+}
 
-  const timerMinusMinute = () => {
-    setMinutes(minutes - 1);
-  };
+const actionPassword = {
+  type: "PASSWORD_CHANGED"
+}
+
+const actionMinus = {
+  type: "BUTTON_MINUS_CLICK"
+}
+
+const actionCheck = {
+  type: "CHECKBOX_CHECKED"
+}
+
+const onCheck =() => {
+  dispatch(actionCheck)
+}
+
+const onPassword =(event) => {
+  dispatch({type: "PASSWORD_CHANGED", payload: event.target.value})
+
+}
+
+const onClickPlus =(x) => {
+  dispatch({type: "BUTTON_PLUS_CLICK", payload: x})
+}
+
+const onClickMinus =(x) => {
+  dispatch({type: "BUTTON_MINUS_CLICK", payload: x})
+}
 
   return (
     <>
-      <div>{`${hours < 10 ? '0' : ''}${hours} Hours`}</div>
-      <button name="plusHour" onClick={timerPlusHour}>
-        +
-      </button>
-      <button name="minusHour" onClick={timerMinusHour}>
-        -
-      </button>
-      <div>{`${minutes < 10 ? '0' : ''}${minutes} Minutes`}</div>
-      <button name="plusMinute" onClick={timerPlusMinute}>
-        +
-      </button>
-      <button name="minusMinute" onClick={timerMinusMinute}>
-        -
-      </button>
+      <button onClick={ () => onClickPlus(5)}>+</button>
+      <button onClick={ () => onClickMinus(5)}>-</button>
+      <input onClick={onCheck} type="checkbox" checked={isChecked}/>
+      <input type="password" onChange={onPassword} value={isPassword}/>    
     </>
   );
 };
-export default TimePicker;
+export default App;
